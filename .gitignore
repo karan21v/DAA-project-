@@ -1,0 +1,20 @@
+# compiled binaries
+q1
+q2
+q3
+q1.exe
+q2.exe
+q3.exe
+
+# python backup files (not for submission)
+*.py
+
+# build scripts and node
+make_pptx*.js
+node_modules/
+package.json
+package-lock.json
+
+# mac junk
+.DS_Store
+.claude/
