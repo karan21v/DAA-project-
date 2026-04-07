@@ -7,11 +7,6 @@
  * (if two elements have the same frequency, pick the larger value),
  * then return the sum of all copies of those elements.
  * If the window has fewer than x distinct elements, just sum the whole window.
- *
- * Compile (Mac/Linux): gcc -O2 -std=c99 q1_sliding_window_xsum.c -o q1
- * Compile (Windows):   gcc -O2 -std=c99 q1_sliding_window_xsum.c -o q1.exe
- * Run (Mac/Linux): ./q1
- * Run (Windows):   q1.exe
  */
 
 #include <stdio.h>
@@ -242,9 +237,8 @@ int main(void) {
 
 /*
  * PSEUDOCODE
- * ==========
  *
- * ── APPROACH 1: Brute Force ──────────────────────────────────────
+ *  APPROACH 1: Brute Force ──
  *
  * FUNCTION xsum_brute(nums[0..n-1], k, x):
  *   result = array of size (n - k + 1)
@@ -274,7 +268,7 @@ int main(void) {
  *   Space: O(k)              -- freq table holds at most k entries
  *
  *
- * ── APPROACH 2: Optimised Sliding Window ─────────────────────────
+ * APPROACH 2: Optimised Sliding Window ──
  *
  * FUNCTION xsum_optimised(nums[0..n-1], k, x):
  *   result = array of size (n - k + 1)
@@ -309,7 +303,7 @@ int main(void) {
  *   Space: O(k)              -- freq table has at most k distinct entries
  *
  *
- * ── KEY INSIGHT ──────────────────────────────────────────────────
+ * KEY INSIGHT ─
  *   Brute force throws away and rebuilds the frequency table for
  *   every single window -- O(k) rebuild work each step.
  *   Sliding window keeps the table alive and makes exactly 2 updates
