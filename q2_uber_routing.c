@@ -17,11 +17,6 @@
  *   1. Forward  - from node 1 on original graph
  *   2. Reverse  - from node r_nodes on graph with all edges flipped
  *      (flipping edges lets us find "shortest distance TO r_nodes" for all nodes at once)
- *
- * Compile (Mac/Linux): gcc -O2 -std=c99 q2_uber_routing.c -o q2
- * Compile (Windows):   gcc -O2 -std=c99 q2_uber_routing.c -o q2.exe
- * Run (Mac/Linux): ./q2
- * Run (Windows):   q2.exe
  */
 
 #include <stdio.h>
@@ -258,9 +253,8 @@ int main(void) {
 
 /*
  * PSEUDOCODE
- * ==========
  *
- * ── Dijkstra's Algorithm (min-heap) ──────────────────────────────
+ * Dijkstra's Algorithm (min-heap) ──
  *
  * FUNCTION DIJKSTRA(graph, source, n):
  *   dist[0..n] = INFINITY
@@ -292,7 +286,7 @@ int main(void) {
  *   This is simpler than decrease-key and works correctly.
  *
  *
- * ── markRoads ────────────────────────────────────────────────────
+ *  markRoads ──
  *
  * FUNCTION markRoads(r_nodes, r_edges, r_from[], r_to[], r_weight[]):
  *
@@ -322,7 +316,7 @@ int main(void) {
  *   Space: O(V + E)           -- two adjacency lists + two dist arrays
  *
  *
- * ── Why the consistency condition works ──────────────────────────
+ *  Why the consistency condition works ──
  *   Think of the shortest path as a fixed budget = shortest_total.
  *   To use road u->v (cost w), we spend:
  *     dist_fwd[u]  to reach u from node 1
@@ -333,7 +327,7 @@ int main(void) {
  *   If the sum exceeds the budget, using this road is suboptimal.
  *
  *
- * ── Why flip edges for reverse Dijkstra ──────────────────────────
+ * Why flip edges for reverse Dijkstra ──
  *   We need dist_rev[v] = shortest distance FROM v TO r_nodes.
  *   This is hard to compute directly (would need Dijkstra from every node).
  *   Instead: flip all edges, then run Dijkstra FROM r_nodes.
