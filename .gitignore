@@ -6,19 +6,3 @@ q1.exe
 q2.exe
 q3.exe
 
-# python backup files (not for submission)
-*.py
-
-# build scripts and node
-make_ppt*.js
-node_modules/
-package.json
-package-lock.json
-
-# presentation (shared separately)
-*.pptx
-*.key
-
-# mac junk
-.DS_Store
-.claude/
