@@ -1,11 +1,5 @@
 # DAA Jackfruit
 
-**Subject:** Design and Analysis of Algorithms
-**Department:** Computer Science and Engineering
-**University:** PES University, Electronic City Campus, Bengaluru
-**Faculty:** Dr. Vandana M L
-
----
 
 ## About This Project
 
