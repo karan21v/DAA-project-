@@ -16,11 +16,6 @@
  * Matrices are stored as flat 1D arrays in row-major order:
  *   M[i][j] = M_flat[i * n + j]
  * This is cache-friendly.
- *
- * Compile (Mac/Linux): gcc -O2 -std=c99 q3_strassen.c -o q3 -lm
- * Compile (Windows):   gcc -O2 -std=c99 q3_strassen.c -o q3.exe -lm
- * Run (Mac/Linux): ./q3
- * Run (Windows):   q3.exe
  */
 
 #include <stdio.h>
@@ -367,9 +362,8 @@ int main(void) {
 
 /*
  * PSEUDOCODE
- * ==========
  *
- * ── APPROACH 1: Naive Multiply ───────────────────────────────────
+ *  APPROACH 1: Naive Multiply ──
  *
  * FUNCTION naive_multiply(A[n x n], B[n x n]):
  *   C = zero matrix of size n x n
@@ -382,7 +376,7 @@ int main(void) {
  *   Time:  O(n^3)   Space: O(n^2)
  *
  *
- * ── APPROACH 2: Strassen's Algorithm ─────────────────────────────
+ *  APPROACH 2: Strassen's Algorithm ───
  *
  * FUNCTION strassen(A[n x n], B[n x n]):
  *
@@ -420,7 +414,7 @@ int main(void) {
  *   Time:  O(n^2.807)       Space: O(n^2 * log n)
  *
  *
- * ── Algebraic Proof that C11 = ae + bg ───────────────────────────
+ * Algebraic Proof that C11 = ae + bg ──
  *
  *   Standard result for top-left quadrant: C11 = ae + bg
  *
@@ -451,14 +445,14 @@ int main(void) {
  *   several additions saves work since additions cost O(n^2) each.
  *
  *
- * ── Crossover Point ──────────────────────────────────────────────
+ *  Crossover Point ──
  *   For small n, Strassen's 7 recursive calls + 18 matrix additions
  *   + memory allocation overhead outweigh the savings.
  *   Empirically, naive is faster for n <= 64.
  *   At n = 512 Strassen is ~1.7x faster (see benchmark output).
  *
  *
- * ── Numerical Stability ──────────────────────────────────────────
+ *  Numerical Stability ───
  *   Strassen does 18 additions per recursion level x log2(n) levels.
  *   Each addition introduces tiny floating-point rounding errors.
  *   These errors compound across all levels of the recursion.
