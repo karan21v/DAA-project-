@@ -10,7 +10,7 @@ q3.exe
 *.py
 
 # build scripts and node
-make_pptx*.js
+make_ppt*.js
 node_modules/
 package.json
 package-lock.json
